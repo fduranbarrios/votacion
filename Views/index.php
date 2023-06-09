@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-        <form action="index.php" method="POST">
+        <form action="Controllers/ajax/ajax.php" method="POST">
             <div>
                 <label for="nombre">Nombre y Apellido</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -43,11 +43,12 @@
             </div>
             <div>
                 <label for="">Como se enteró de nosotros</label>
-                <label><input type="checkbox" id="cbox1" class="check" value="web">Web</label>
-                <label><input type="checkbox" id="cbox2" class="check" value="tv">Tv</label>
-                <label><input type="checkbox" id="cbox3" class="check" value="redes_sociales">Redes Sociales</label>
-                <label><input type="checkbox" id="cbox4" class="check" value="amigo">Amigo</label>
+                <label><input name="fuente[]" required type="checkbox" id="cbox1" class="check" value="web">Web</label>
+                <label><input name="fuente[]" required type="checkbox" id="cbox2" class="check" value="tv">Tv</label>
+                <label><input name="fuente[]" required type="checkbox" id="cbox3" class="check" value="redes sociales">Redes Sociales</label>
+                <label><input name="fuente[]" required type="checkbox" id="cbox4" class="check" value="amigo">Amigo</label>
             </div>
+            <input type="hidden" name="funcion" value="guardar">
             <input type="submit">
         </form>
     </div>

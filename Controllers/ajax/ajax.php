@@ -1,6 +1,6 @@
 <?php 
 
-$funcion = $_GET['funcion'];
+$funcion = isset($_GET['funcion']) ? $_GET['funcion'] : $_POST['funcion'];
 
 switch ($funcion){
     case "obtenerRegiones":
@@ -21,6 +21,13 @@ switch ($funcion){
         $response = new candidatoController();
         $candidatos = $response->showCandidatos();
         echo $candidatos;
+        break;
+
+    case "guardar":
+        require "../votacionController.php";
+        $response = new votacionController();
+        $guardar = $response->store($_POST['nombre'],$_POST['alias'],$_POST['rut'],$_POST['email'],$_POST['region'],$_POST['comuna'],$_POST['candidato'],$_POST['fuente']);
+        echo $guardar;
         break;
 }
 

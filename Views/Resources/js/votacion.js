@@ -120,11 +120,22 @@ $(document).ready(function () {
     
         return rutFormateado;
     }
+
+    //VALIDAR QUE SE CHECKEN DOS OPCIONES MINIMO
     $(".check").click(function(){
-        let maxCheck = 2;
+        let minCheck = 2;
         let checkSelected = $(".check:checked");
-        if(checkSelected.length > maxCheck){
-            $(checkSelected[maxCheck]).prop("checked", false);
+        if(checkSelected.length >= minCheck){
+            $(".check").each(function(){
+                var isChecked = $(this).prop('checked');
+                if(!isChecked){
+                    $(this).removeAttr("required");
+                }
+            })
+        }else{
+            $(".check").each(function(){
+                $(this).prop("required",true);
+            })
         }
     })
 });
